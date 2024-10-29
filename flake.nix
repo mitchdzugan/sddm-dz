@@ -39,6 +39,7 @@
             src = nixpkgs.lib.cleanSource ./.;
           };
 
+          dontWrapQtApps = true;
           propagatedBuildInputs = [
             nixpkgsFor.${system}.libsForQt5.qt5.qtgraphicaleffects
           ];
