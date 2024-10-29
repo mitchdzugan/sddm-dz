@@ -39,8 +39,7 @@
             src = nixpkgs.lib.cleanSource ./.;
           };
 
-          propagatedBuildInputs = [ nixpkgs.pkgs.qtgraphicaleffects ];
-
+          propagatedBuildInputs = [ nixpkgsFor.${system}.qtgraphicaleffects ];
 
           dontConfigure = true;
           dontBuild = true;
