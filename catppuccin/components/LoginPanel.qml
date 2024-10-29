@@ -76,8 +76,8 @@ Item {
             background: Rectangle {
                 id: buttonBackground
 
-                color: config.LoginButtonBgColor
-                opacity: 0.5
+                color: config.LoginButtonDisabledBgColor
+                opacity: 0.8
                 radius: config.CornerRadius
             }
 
@@ -133,6 +133,7 @@ Item {
                     when: loginButton.enabled
                     PropertyChanges {
                         target: buttonBackground
+                        color: config.LoginButtonBgColor
                         opacity: 1
                     }
                     PropertyChanges {
