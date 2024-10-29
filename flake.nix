@@ -30,14 +30,17 @@
     {
       # Provide some binary packages for selected system types.
       packages = forAllSystems (system: {
-        catppuccin-sddm-corners = nixpkgsFor.${system}.stdenvNoCC.mkDerivation {
-          pname = "catppuccin-sddm-corners";
+        sddm-dz = nixpkgsFor.${system}.stdenvNoCC.mkDerivation {
+          pname = "sddm-dz";
           inherit version;
 
           src = nixpkgs.lib.cleanSourceWith {
             filter = name: type: type != "regular" || !nixpkgs.lib.hasSuffix ".nix" name;
             src = nixpkgs.lib.cleanSource ./.;
           };
+
+          propagatedBuildInputs = [ nixpkgs.pkgs.qtgraphicaleffects ];
+
 
           dontConfigure = true;
           dontBuild = true;
@@ -46,16 +49,16 @@
             runHook preInstall
 
             mkdir -p "$out/share/sddm/themes/"
-            cp -r catppuccin/ "$out/share/sddm/themes/catppuccin-sddm-corners"
+            cp -r catppuccin/ "$out/share/sddm/themes/sddm-dz"
 
             runHook postInstall
           '';
 
           meta = {
             description = "Soothing pastel theme for SDDM";
-            homepage = "https://github.com/khaneliman/catppuccin-sddm-corners";
+            homepage = "https://github.com/mitchdzugan/sddm-dz";
             license = nixpkgs.lib.licenses.mit;
-            maintainers = with nixpkgs.lib.maintainers; [ khaneliman ];
+            maintainers = with nixpkgs.lib.maintainers; [ mitchdzugan ];
             platforms = nixpkgs.lib.platforms.linux;
           };
         };
@@ -64,7 +67,7 @@
       # The default package for 'nix build'. This makes sense if the
       # flake provides only one package or there is a clear "main"
       # package.
-      defaultPackage = forAllSystems (system: self.packages.${system}.catppuccin-sddm-corners);
+      defaultPackage = forAllSystems (system: self.packages.${system}.sddm-dz);
 
       devShell = forAllSystems (
         system:
