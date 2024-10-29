@@ -2,7 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 
 Column {
-    spacing: 420
+    spacing: 300
     
     Text {
         id: dateLabel
