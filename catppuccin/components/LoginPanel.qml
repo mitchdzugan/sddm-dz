@@ -69,7 +69,7 @@ Item {
                 verticalAlignment: Text.AlignVCenter
 
                 color: config.LoginButtonTextColor
-                opacity: 0.5
+                opacity: 0.8
                 text: config.LoginButtonText
             }
         
