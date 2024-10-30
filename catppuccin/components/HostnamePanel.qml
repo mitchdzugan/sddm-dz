@@ -5,23 +5,23 @@ Column {
     spacing: 8
 
     anchors {
-        bottom: parent.bottom
-        horizontalCenter: parent.horizontalCenter
+        top: parent.top
+        right: parent.right
     }
     
     Text {
         id: hostnameLabel
 
         anchors {
-            bottom: parent.bottom
-            horizontalCenter: parent.horizontalCenter
+            top: parent.top
+            right: parent.right
         }
         opacity: config.DateOpacity
 
         renderType: Text.NativeRendering
         font.family: config.Font
-        font.pointSize: config.DateSize
-        font.bold: config.DateIsBold == "true" ? true : false
+        font.pointSize: config.GeneralFontSize
+        font.bold: true
         color: config.DateColor
         text: sddm.hostName
     }
