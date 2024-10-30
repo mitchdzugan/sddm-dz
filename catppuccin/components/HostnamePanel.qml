@@ -12,7 +12,10 @@ Column {
     Text {
         id: hostnameLabel
 
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors {
+            bottom: parent.bottom
+            horizontalCenter: parent.horizontalCenter
+        }
         opacity: config.DateOpacity
 
         renderType: Text.NativeRendering
