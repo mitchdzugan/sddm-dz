@@ -47,5 +47,11 @@ Item {
             
             anchors.fill: parent
         }
+        
+        HostnamePanel {
+            id: hostnamePanel
+            
+            anchors.fill: parent
+        }
     }
 }
